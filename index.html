@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <main class="p-4 w-[600px] flex flex-col gap-5">
+      <h1 class="text-4xl"></h1>
+      <section class="flex flex-col gap-5">
+        <div class="grid grid-cols-2 gap-2">
+          <h3 class="text-2xl">Inserisci colore sfondo</h3>
+          <input type="text" name="" id="coloresfondo" class="bg-slate-100" />
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <h3 class="text-2xl">Inserisci colore di testo</h3>
+          <input type="text" name="" id="coloretesto" class="bg-slate-100" />
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <h3 class="text-2xl">Inserisci un contenuto</h3>
+          <input type="text" name="" id="contenuto" class="bg-slate-100" />
+        </div>
+      </section>
+      <button id="button" class="p-2 bg-slate-300 w-full">Crea</button>
+      <h1 class="text-2xl">Riusltato</h1>
+      <section
+        id="result"
+        class="bg-slate-50 p-10 grid grid-cols-2 gap-5"
+      ></section>
+    </main>
+
+    <script>
+      const button = document.getElementById("button");
+      const result = document.getElementById("result");
+
+      button.addEventListener("click", () => {
+        let inputSfondo = document.getElementById("coloresfondo").value;
+        let inputTesto = document.getElementById("coloretesto").value;
+        let inputContenuto = document.getElementById("contenuto").value;
+        let div = document.createElement("div");
+        div.innerHTML = inputContenuto;
+        result.appendChild(div);
+        div.classList.add(
+          "w-[200px]",
+          "h-[200px]",
+          "flex",
+          "justify-center",
+          "items-center"
+        );
+        div.style.backgroundColor = inputSfondo;
+        div.style.color = inputTesto;
+      });
+    </script>
+  </body>
+</html>
